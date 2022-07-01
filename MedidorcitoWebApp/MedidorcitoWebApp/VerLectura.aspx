@@ -7,10 +7,11 @@
                     <h3>Ver Lectura</h3>
                 </div>
                 <div class="card-body">
-                    <asp:GridView CssClass="table table-hover table-bordered"
-                        OnRowCommand="grillaLecturas_RowCommand"
-                        AutoGenerateColumns="false"
-                        runat="server" ID="grillaLecturas">
+
+                                   
+
+                    <asp:GridView CssClass="table table-hover table-bordered" AutoGenerateColumns="false"
+                        runat="server" ID="grillaLecturas">                        
                         <Columns>
                             <asp:BoundField DataField="MedidorLectura.NumeroSerie" HeaderText="Medidor" />
                             <asp:BoundField DataField="Fecha" HeaderText="Fecha" />

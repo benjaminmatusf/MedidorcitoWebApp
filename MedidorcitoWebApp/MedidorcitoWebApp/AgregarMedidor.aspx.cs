@@ -26,7 +26,9 @@ namespace MedidorcitoWebApp
 
         protected void agregarBtn_Click(object sender, EventArgs e)
         {
-            int tipo = Convert.ToInt32(this.tipoRbl.SelectedItem.Value);              
+            if (Page.IsValid == true)
+            {
+                int tipo = Convert.ToInt32(this.tipoRbl.SelectedItem.Value);              
             int numeroSerie = Convert.ToInt32(this.numeroSerieTxt.Text.Trim());
 
             Medidor medidor = new Medidor()
@@ -36,6 +38,11 @@ namespace MedidorcitoWebApp
             };
             medidoresDAL.Agregar(medidor);
             Response.Redirect("VerMedidor.aspx");
+            }
+            else
+            {
+                mensajesLbl.Text = "Por favor, revise los datos ingresados";
+            }
         }
 
 

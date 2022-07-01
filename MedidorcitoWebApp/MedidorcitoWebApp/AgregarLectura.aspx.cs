@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 namespace MedidorcitoWebApp
 {
     public partial class AgregarLectura : System.Web.UI.Page
+       
     {
         private IMedidorDAL medidorDAL = new MedidorDALObjetos();
         private ILecturaDAL lecturasDAL = new LecturaDALObjetos();
@@ -31,7 +32,8 @@ namespace MedidorcitoWebApp
         protected void agregarBtn_Click(object sender, EventArgs e)
         {
 
-           
+            if (Page.IsValid == true)
+            {
                 string fecha = fechaCld.SelectedDate.ToShortDateString();
                 string consumoTxt = this.consumoTxt.Text.Trim();
                 int consumo = Int32.Parse(consumoTxt);
@@ -58,6 +60,13 @@ namespace MedidorcitoWebApp
                 };
                 lecturasDAL.Agregar(lectura);
                 Response.Redirect("VerLectura.aspx");
+            }
+            else
+            {
+                mensajesLbl.Text = "Por favor, revise los datos ingresados";
+            }
+
+           
            
 
         }

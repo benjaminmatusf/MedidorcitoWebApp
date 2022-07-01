@@ -15,6 +15,11 @@ namespace ModeloClases.DAL
             lecturas.Add(lectura);
         }
 
+        public List<Lectura> Filtrar(Medidor medidorLectura)
+        {
+
+            return lecturas.FindAll(l => l.MedidorLectura == medidorLectura);
+        }
 
         public List<Lectura> Obtener()
         {

@@ -13,7 +13,15 @@
             <div class="card">
                 <div class="card-header bg-info text-white">
                     <h3>Ver Medidores</h3>
-                </div>                             
+                </div>                    
+                
+                <div class="form-group">
+                        <label for="tipoDdl">Filtrar por tipo de medidor: </label>
+                        <asp:DropDownList AutoPostBack="true" OnSelectedIndexChanged="tipoDdl_SelectedIndexChanged" runat="server" ID="tipoDdl">
+                            <asp:ListItem Value="1" Text="Medidor de enchufe"></asp:ListItem>
+                            <asp:ListItem Value="2" Text="Medidor con monitor"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
 
                     <asp:GridView CssClass="table table-hover table-bordered"
                         onRowCommand="grillaMedidores_RowCommand"

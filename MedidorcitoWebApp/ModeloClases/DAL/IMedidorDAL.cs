@@ -14,6 +14,8 @@ namespace ModeloClases.DAL
 
         void Agregar(Medidor medidor);
 
+        List<Medidor> Filtrar(int tipo);
+
 
     }
 }

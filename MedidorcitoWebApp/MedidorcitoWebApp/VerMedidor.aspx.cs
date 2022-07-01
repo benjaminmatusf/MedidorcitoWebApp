@@ -35,6 +35,15 @@ namespace MedidorcitoWebApp
             this.grillaMedidores.DataBind();
         }
 
+        private void cargarGrilla(List<Medidor> filtracion)
+        {
+
+            this.grillaMedidores.DataSource = filtracion;
+            this.grillaMedidores.DataBind();
+        }
+
+       
+
         protected void cargarBtn_Click(object sender, EventArgs e)
         {
 
@@ -72,6 +81,16 @@ namespace MedidorcitoWebApp
                 cargarGrilla();
             
            
+        }
+
+        protected void tipoDdl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.tipoDdl.SelectedItem != null)
+            {
+                int tipo = Convert.ToInt32(this.tipoDdl.SelectedItem.Value);
+                List<Medidor> filtracion = medidoresDAL.Filtrar(tipo);
+                cargarGrilla(filtracion);
+            }
         }
     }
 }

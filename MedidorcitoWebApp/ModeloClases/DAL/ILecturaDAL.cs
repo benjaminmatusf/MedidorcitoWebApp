@@ -13,5 +13,6 @@ namespace ModeloClases.DAL
         List<Lectura> Obtener();
         void Agregar(Lectura lectura);
 
+        List<Lectura> Filtrar(Medidor medidorLectura);
     }
 }
